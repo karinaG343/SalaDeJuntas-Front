@@ -1,0 +1,25 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<form class="row g-3" Style="background-color:antiquewhite">
+    <div class="col-10 container-md">
+        <div class="container-md"> 
+            <p class="fs-2 fw-bolder">Reservaciones</p>
+        </div>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected>Selecciona la sala</option>
+            <option value="1">Sala 1</option>
+            <option value="2">Sala 2</option>
+            <option value="3">Sala 3</option>
+          </select>
+        </div>
+        <div class="col-10 container-md">
+            <label for="validationCustom01" class="form-label">Fecha y hora inicio de la reunión</label>
+            <input type="text" class="form-control" formControlName="fecha_hora_inicial" value="" required>
+        </div>
+        <div class="col-10 container-md">
+            <label for="validationCustom01" class="form-label">Fecha y hora final de la reunión</label>
+            <input type="text" class="form-control" formControlName="fecha_hora_final" value="" required>
+        </div>
+    <div class="col-10 container-md">
+      <button mat-raised-button type="submit" class="btn btn-primary" style="align-items: center;">Enviar</button>
+    </div>
+  </form>
