@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SalasService {
-  private apiUrl = 'https://localhost:ip/api/salas'; 
+  private apiUrl = 'https://localhost:7200/api/salas'; 
 
 
   constructor(private http: HttpClient) { }

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReservacionesService {
-  private apiUrl = 'https://localhost:ip/api/reservaciones'; 
+  private apiUrl = 'https://localhost:7200/api/reservaciones'; 
 
 
   constructor(private http: HttpClient) { }

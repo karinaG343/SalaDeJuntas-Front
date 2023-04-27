@@ -7,10 +7,10 @@ const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot([
-    { path: '', redirectTo:'/bienvenidos', pathMatch: 'full' },
+    { path: '', redirectTo:'/reservaciones', pathMatch: 'full' },
     { path: 'salas', component: SalasComponent },
     { path: 'reservaciones', component: ReservacionesComponent},
-    { path: '**', redirectTo:'bienvenidos', pathMatch: 'full' }
+    { path: '**', redirectTo:'/reservaciones', pathMatch: 'full' }
   ])
 ],
   exports: [RouterModule]
