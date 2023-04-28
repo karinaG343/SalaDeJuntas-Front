@@ -1,27 +1,29 @@
 <form class="row g-3" Style="background-color:antiquewhite" [formGroup]="salaForm" (ngSubmit)="SetSala()">
     <div class="col-10 container-md">
         <div class="container-md"> 
+          <br>
             <p class="fs-2 fw-bolder">Salas</p>
         </div>
       <label for="validationCustom01" class="form-label">Nombre de la sala</label>
       <input type="text" class="form-control" formControlName="sala" value="" required>
     </div>
     <div class="col-10 container-md">
-      <button mat-raised-button type="submit" class="btn btn-primary" style="align-items: center;">Enviar</button>
-      <button mat-raised-button (click)="GetSala()" class="btn btn-primary" style="align-items: center;">Mostrar</button>
+      <button mat-raised-button type="submit" class="btn btn-primary" style="align-items: center;" [disabled]="this.salaForm.invalid">{{accion}}</button>
     </div>
 </form>
+<br><br>
 <div>
-  <table>
-    <tr>
-      <td>ID</td>
-      <td>Nombre de la sala</td>
-      <td>Acciones</td>
+  <table class="table table-bordered border-dark col-10 container-md">
+    <tr class="table table-bordered border-primary">
+      <td class="fs-6 fw-bolder">ID</td>
+      <td class="fs-6 fw-bolder">Nombre de la sala</td>
+      <td class="fs-6 fw-bolder">Acciones</td>
     </tr>
     <tr *ngFor="let tabla of tablaSala">
       <td>{{tabla.id}}</td>
       <td>{{tabla.nombre_sala}}</td>
-      <td><button mat-raised-button (click)="DeleteSala(tabla.id)" class="btn btn-danger" style="align-items: center;">Eliminar</button></td>
+      <td><button mat-raised-button (click)="DeleteSala(tabla.id)" class="btn btn-outline-danger" style="align-items: center;">Eliminar</button>
+        <button mat-raised-button (click)="PutSala(tabla)" class="btn btn-outline-success" style="align-items: center;">Editar</button></td>
     </tr>
   </table>
 </div>

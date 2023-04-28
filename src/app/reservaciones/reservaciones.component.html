@@ -1,21 +1,44 @@
-<form class="row g-3" Style="background-color:antiquewhite">
+<form class="row g-3" Style="background-color:antiquewhite" [formGroup]="formReservaciones" (ngSubmit)="SetReservaciones()">
     <div class="col-10 container-md">
         <div class="container-md"> 
+            <br>
             <p class="fs-2 fw-bolder">Reservaciones</p>
         </div>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" required>
+        <div class="container-md">
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" required formControlName="sala">
             <option *ngFor="let sala of tablaSala" value="{{sala.id}}">{{sala.nombre_sala}}</option>
           </select>
         </div>
+        </div><br>
         <div class="col-10 container-md">
-          <label for="">Fecha inicial</label>
-          <input type="datetime-local" id="meeting-time" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00">
-        </div>
+          <label for="">Fecha y hora inicial</label>
+          <input type="datetime-local" id="meeting-time" name="meeting-time" value="2023-04-27T19:30" min="2018-06-07T00:00" max="2030-06-14T00:00" requiered formControlName="fecha_inicio">
+        </div><br>
         <div class="col-10 container-md">
-          <label for="">Fecha final</label>
-          <input type="datetime-local" id="meeting-time" name="meeting-time" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00">
-        </div>
+          <label for="">Fecha y hora final</label>
+          <input type="datetime-local" id="meeting-time" name="meeting-time" value="2023-04-27T19:30" min="2018-06-07T00:00" max="2030-06-14T00:00" required formControlName="fecha_fin">
+        </div><br>
     <div class="col-10 container-md">
       <button mat-raised-button type="submit" class="btn btn-primary" style="align-items: center;">Enviar</button>
     </div>
   </form>
+  <br><br> 
+    <div class="col-10 container-md">  
+      <table class="table table-bordered border-dark">
+        <tr class="table table-bordered border-primary">
+          <td class="fs-6 fw-bolder">Sala</td>
+          <td class="fs-6 fw-bolder">Fecha y hora inicio</td>
+          <td class="fs-6 fw-bolder">Fecha y hora final</td>
+          <td class="fs-6 fw-bolder">Estatus</td>
+          <td class="fs-6 fw-bolder">Liberar</td>
+        </tr>
+        <tr *ngFor="let tabla of tablaReservaciones">
+          <td>{{tabla.id_sala}}</td>
+          <td>{{tabla.fecha_hora_inicial}}</td>
+          <td>{{tabla.fecha_hora_final}}</td>
+          <td>{{tabla.liberado}}</td>
+          <td><button class="btn btn-outline-dark" (click)="LiberarReservacion(tabla)" style="align-items: center;" *ngIf = "tabla.liberado == false; hidden">Liberar</button></td>
+        </tr>
+      </table>
+    </div>
+
